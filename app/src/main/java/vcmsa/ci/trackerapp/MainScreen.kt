@@ -65,17 +65,18 @@ class MainScreen : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
+        //Clear button clears all data
         btnClear.setOnClickListener {
         clearAllData()
         }
     }
-
+    //Method to save inputs for each day
     private fun savesInputsForDay(day: Int): Boolean {
+        // Get the input values from the EditText fields
         val water = editTxtWater.text.toString()
         val exercise = editTxtExercise.text.toString()
         val sleep = editTxtSleep.text.toString()
-
+        //Check if all fields are filled
         if (water.isBlank() || exercise.isBlank() || sleep.isBlank()) {
             textView.text = "Please fill in all fields"
             return false
@@ -88,15 +89,15 @@ class MainScreen : AppCompatActivity() {
             textView.text = "Please enter valid numbers"
             return false
         }
-            return true
+        return true
     }
-
+    //Method to clear all input fields
     private fun clearInputsFields() {
         editTxtWater.text.clear()
         editTxtExercise.text.clear()
         editTxtSleep.text.clear()
     }
-
+    //Method to clear all data
     private fun clearAllData() {
         for (i in 0 until 6) {
             waterIntake[i] = 0
